@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  mysql_test_db:
+    env_file:
+      - .env
+    container_name: mysql_testdb
+    image: mysql:8.0-debian
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'testdb'
+      MYSQL_USER: 'testuser'
+      MYSQL_PASSWORD: ${USERPASS}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+
+    ports:
+      - '23306:3306'
+    # expose:
+    #   - '3306'
+    volumes:
+      - mysqltest_vol:/var/lib/mysql
+    networks:
+      - mysqltest_net
+
+volumes:
+  mysqltest_vol:
+    name: mysqltest_vol
+
+networks:
+  mysqltest_net:
+    name: mysqltest_net
