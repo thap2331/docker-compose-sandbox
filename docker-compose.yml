@@ -18,7 +18,7 @@ services:
       timeout: 20s
       retries: 10
     ports:
-      - '${NEW_PORT}:3306'
+      - '${PORT}:3306'
     volumes:
       - mysqltest_vol:/var/lib/mysql
     networks:
