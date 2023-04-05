@@ -1,6 +1,7 @@
-# learn_db_expose
 
-## How to use this repo?
+# Docker compose sandbox
+
+## Spin up a mysql database with a seperate volume and network
 - Clone the repo.
 - Copy `.env.example` to `.env`. Fill in variables as you wish.
 - Spin up the db using `docker compose up mysql_test_db -d`
